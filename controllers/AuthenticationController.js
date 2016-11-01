@@ -1,10 +1,24 @@
 'use strict';
 
 
+var TextWare = require('textware-api').create({
+  username: 'idama',
+  password: 'IdaM@3A8',
+  source: 'IDAMA'
+});
+
 module.exports.verifyMobile = function verifyMobile (req, res, next) {
   // Code necessary to consume the Weather API and respond
 
   var mobileNumber = req.body.mobileNumber;
+
+  TextWare.sendSMS({
+    recipient: mobileNumber,
+    message: 'This is a test message.' + 2342
+  }, function(error, response) {
+    if(error) throw error;
+    console.log(response);
+  });
 
   var response = "Successfully send verify code to" + mobileNumber;
 
@@ -18,9 +32,14 @@ module.exports.verifyMobile = function verifyMobile (req, res, next) {
 module.exports.verified = function verified (req, res, next) {
   // Code necessary to consume the Weather API and respond
 
-  var mobileNumber = req.body.verifcationCode;
+  var mobileNumber = req.body.verify.verifcationCode;
+  var code = req.body.verify.verifyCode;
 
-  var response = "Successfully verify";
+  if(code == 2342){
+    var response = "Successfully verify";
+  }else{
+    var response = "verification Fail";
+  }
 
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify(response));
