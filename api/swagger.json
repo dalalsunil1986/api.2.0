@@ -11,7 +11,7 @@
    "consumes":[
       "application/json"
    ],
-   "host":"128.199.220.186:3000",
+   "host":"test.idama.lk",
    "basePath":"/service-provider/api",
    "paths":{
       "/registation":{
