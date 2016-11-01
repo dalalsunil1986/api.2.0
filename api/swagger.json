@@ -11,7 +11,7 @@
    "consumes":[
       "application/json"
    ],
-   "host":"localhost:3000",
+   "host":"128.199.220.186:3000",
    "basePath":"/service-provider/api",
    "paths":{
       "/registation":{
