@@ -31,6 +31,6 @@ swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
 
   // Start the server
   http.createServer(app).listen(serverPort, function () {
-    console.log('Your server is listening on port %d (http://localhost:%d)', serverPort, serverPort);
+    console.log('Your server is listening on port %d (http://128.199.220.186:%d)', serverPort, serverPort);
   });
 });
